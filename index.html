@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SimpleSale Dapp GUI</title>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="container">
+	<h1>Simple JQuery-free GUI for the <a href='https://github.com/VKoskiv/ethereum-sale-dapp'>SimpleSale</a> contract by @vkoskiv</h1>
+
+	<br>
+
+	<input type="text" id="seller" placeholder="Seller Address" />
+	<input type="text" id="buyer" placeholder="Buyer Address" />
+
+	<a href="#" onClick="deployContract()" class="btn btn-primary">Deploy Sale Contract</a>
+	<p>Note: The account deploying a new sale will be the arbitrator, and thus cannot participate in the sale</p>
+	<br>
+	<p id="description"></p><a href="" id="contractlink"></a>
+	<br>
+	
+	<h2>Current contract status:</h2>
+	<p class="bg-info" id="salebalance">Sale balance: 0 ETH</p>
+	<p class="bg-info" id="salestarted">Sale started on: </p>
+	<p class="bg-info" id="buyerstatus">Buyer: Disagrees</p>
+	<p class="bg-info" id="sellerstatus">Seller: Disagrees</p>
+	
+	<br>
+
+	<a href="#" onClick="addContract()" class="btn btn-success">Open Contract</a>
+	<input type="text" id="salecontract" placeholder="Sale Contract Address" />
+	<p>Paste the address of an existings sale contract you wish to interact with.</p>
+	<a href="#" onClick="abortSale()" class="btn btn-danger">Abort Sale</a>
+	<p>Only arbitrator (contract deployer) can abort a sale.</p>
+	<a href="#" onClick="approveSale()" class="btn btn-primary">Approve Sale</a>
+	<p>Approve the sale if you are happy with the price, or have just deposited funds.</p>
+	<a href="#" onClick="disapproveSale()" class="btn btn-primary">Disapprove Sale</a>
+	<p>Disapprove the sale if you are not satisfied with the terms.</p>
+	<a href="#" onClick="cancelSale()" class="btn btn-primary">Cancel Sale</a>
+	<p>Cancel sale if you desire.</p>
+	<a href="#" onClick="depositFunds()" class="btn btn-primary">Deposit Funds</a>
+	<input type="text" id="depositamount" placeholder="Deposit amount" />
+	<p>Deposit funds into the contract. Will be returned to you if sale is canceled/aborted.</p>
+
+</body>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="./index.js"></script>
+</html>
