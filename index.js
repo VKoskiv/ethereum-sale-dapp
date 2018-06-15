@@ -151,7 +151,9 @@ function cancelSale() {
 function depositFunds() {
 	checkInstance();
 	let fundsAmount = document.getElementById("depositamount").value;
-	contractInstance.abortSale(fundsAmount, (err) => {
+	fundsAmount = fundsAmount * 1000000000000000000;
+	console.log(fundsAmount);
+	contractInstance.depositFunds({from: web3.eth.accounts[0], gas: 3000000, value: fundsAmount}, (err) => {
 		if (err) {
 			alert(err);
 		}
