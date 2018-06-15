@@ -63,6 +63,8 @@ function deployContract() {
 				document.getElementById("description").innerHTML = "Your contract is at: ";
 				document.getElementById("contractlink").innerHTML = "https://ropsten.etherscan.io/address/" + deployed.address;
 				document.getElementById("contractlink").setAttribute('href', "https://ropsten.etherscan.io/address/" + deployed.address);
+				document.getElementById("salecontract").value = deployed.address;
+				addContract();
 			}
 			console.log(deployed.address);
 		} else {
